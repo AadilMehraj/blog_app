@@ -1,0 +1,152 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(248, 248, 248);
+}
+ 
+.container-main{
+    margin: 0px auto;
+    max-width: 1366px;
+    min-height: 80vh;
+}
+
+.main-box{
+    padding: 0px 10px;
+}
+
+.brand-logo{
+    padding: 30px 0px;
+}
+
+.navbar-nav > a{
+    padding: 0px 0px 0px 60px !important;
+}
+
+.content-header{
+    padding-right: 100px;
+    position: relative;
+    top: 5rem;
+ 
+}
+
+.primary-btn{
+    background-color: transparent;
+    padding: 10px 40px;
+    border-width: 1px;
+    margin-top: 1rem;
+}
+
+.primary-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.card{
+padding-bottom: 20px;
+border-color: black;
+background-color: transparent;
+margin-top: 20px;
+max-width: 500px;
+
+}
+
+.card>img{
+    width: 100%;
+    /* margin-left: -15px; */
+}
+.card>p{
+    margin-top: 0;
+    margin-top: -10px;
+    padding: 0px 20px;
+}
+.card>form>button, .card>form>button:active{
+    margin-top: 20px;
+    margin-right:10px;
+    float: right;
+    background-color: transparent;
+    border: 0px;
+    text-decoration: underline;
+}
+.card>form>button:hover{
+    color: rgb(14, 129, 131);
+}
+
+h2{
+    font-weight: 700;
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+}
+
+.blog-section{
+    margin-top:6rem;
+}
+
+.card-header{
+    background-color: rgba(0,0,0,.00);
+    border-bottom: none;
+    font-size: 1.4rem;
+}
+
+.p-date{
+    color: rgb(134, 134, 134);
+}
+
+.sm-btn{
+    margin: 3rem auto;
+}
+
+.about-content{
+    padding: 0rem 2rem;
+}
+
+footer{
+    text-align: center;
+    margin-top: 5rem;
+    padding: 60px 0px 60px 0px;
+    background-color: rgb(240, 240, 240); 
+    width: 100%;
+    color: grey;
+    bottom: 0px;
+}
+
+form{
+    max-width: 600px;
+}
+
+/* ---------------------Blog Post CSS-------------- */
+.blog-container{
+    max-width: 720px;
+    margin: 0 auto;
+    
+}
+.header-blog{
+    margin-top: 2rem;
+    padding: 0px 10px;
+}
+.blog-post-img{
+    max-width:720px;
+    width: 100%;
+}
+.post-body{
+    padding: 0px 10px;
+}
+.blog-date{
+    color: rgb(121, 121, 121);
+    padding: 0px 10px;
+    float: right;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1020px) {
+    .content-header{
+        top: 10%;
+        padding-right: 0px;
+        margin-top: 2rem;
+    }
+  }
+
+
+@media screen and (max-width: 768px) {
+    .content-header{order:2;}
+    .content-image{order:1;}
+};
+    

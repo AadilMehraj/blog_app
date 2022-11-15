@@ -1,0 +1,42 @@
+<%- include ('partials/header.ejs') %>
+
+<div class="main-box">
+    <section class="row">
+        <div class="col-md-6 col-sm-12 content-header">
+                <h2>Developer onboarding for new college grads</h2>
+                <p>Pluralsight’s Erik Gross walks through developer onboarding best practices for college grads who need to learn your...</p>
+                <button class="primary-btn">Read full article</button>
+        </div>
+        <div class="col-md-6 col-sm-12 content-image">
+            <img class="banner-img img-fluid" src="/images/banner1.png" alt="banner image"  >
+        </div>
+    </section>
+
+    <!-- Blog Cards list section -->
+    <section class="row blog-section">
+        <%= console.log(blogList) %> 
+      <% for( let index = 0; index < blogList.length; index++ ) { %>
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <img src="/images/blog-images/<%= blogList[index].header_image %>" alt="">
+                <h3 class="card-header"><%= blogList[index].blog_title %> </h3>
+                <p  class="p-date"><%= blogList[index].b_date %></i></p>
+                <p><%= blogList[index].blog_short_description %></p>
+    
+                <form action="/post" method="post">
+                    <input type="text" name="index" id="" value="<%= index %>" hidden>
+                      <button type="submit">Read full article</button>
+                </form>
+            </div>   
+           </div>
+      <% } %>
+        
+    </section>
+    <div class="text-center">
+        <button class="primary-btn sm-btn">Show More</button>
+     </div>
+  </div>
+</div>
+
+
+<%- include ('partials/footer.ejs') %> 
