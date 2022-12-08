@@ -1,4 +1,5 @@
-<%- include ('partials/header.ejs') %>
+<%- include ('partials/header.ejs') 
+%>
 
 <div class="main-box">
     <section class="row">
@@ -14,22 +15,21 @@
 
     <!-- Blog Cards list section -->
     <section class="row blog-section">
-        <%= console.log(blogList) %> 
-      <% for( let index = 0; index < blogList.length; index++ ) { %>
+      <% blogList.forEach( function(post, index ) { %>
         <div class="col-lg-4 col-md-6">
             <div class="card">
-                <img src="/images/blog-images/<%= blogList[index].header_image %>" alt="">
-                <h3 class="card-header"><%= blogList[index].blog_title %> </h3>
-                <p  class="p-date"><%= blogList[index].b_date %></i></p>
-                <p><%= blogList[index].blog_short_description %></p>
+                <img src="/images/blog-images/<%= post.header_image %>" alt="">
+                <h3 class="card-header"><%= post.blog_title %> </h3>
+                <p  class="p-date"><%= post.b_date %></i></p>
+                <p><%= post.blog_short_description %></p>
     
-                <form action="/post" method="post">
+                <form action="/post/<%= post.blog_title %> " method="post">
                     <input type="text" name="index" id="" value="<%= index %>" hidden>
                       <button type="submit">Read full article</button>
                 </form>
             </div>   
            </div>
-      <% } %>
+      <%} )%>
         
     </section>
     <div class="text-center">

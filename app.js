@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const multer = require("multer");
 const appfuncs = require(__dirname + "/functions.js");
-
+const lodash = require("lodash");
 
 
 
@@ -69,17 +69,40 @@ app.get("/compose", (req,res)=>{
     res.render("compose");
 })
 
-app.get("/post", (req, res) =>{
-    res.render("post");
-})
+// app.get("/post", (req, res) =>{
+//     res.render("post");
+// })
 
-app.post("/post", (req, res)=>{
-    let i = req.body.index;
-    res.render("post",{b_img: posts[i].header_image, b_header: posts[i].blog_title, b_body: posts[i].blog_description, p_date: posts[i].b_date})
-})
+// app.post("/post", (req, res)=>{
+//     let i = req.body.index;
+//     res.render("post",{b_img: posts[i].header_image, b_header: posts[i].blog_title, b_body: posts[i].blog_description, p_date: posts[i].b_date})
+// })
 
 app.post("/compose", upload.single('blogImage'),(req,res)=>{
     let post = new BlogPost(req.body.blogTitle, req.body.blogDescription, appfuncs.shortDesc(req.body.blogDescription), req.file.filename, appfuncs.postDate());
     posts.push(post);
     res.render("compose");
+})
+
+app.post("/post/:postName", function (req, res){
+    
+    var requestedTitle = lodash.lowerCase(req.params.postName);
+    posts.forEach(function(post){
+        let savedTitle = lodash.lowerCase(post.blog_title); 
+
+        if (savedTitle == requestedTitle)
+        {       
+            let postEndpoint = lodash.kebabCase(savedTitle);
+
+            console.log("Match Found!")
+            res.render("post",{b_img: post.header_image, b_header: post.blog_title, b_body: post.blog_description, p_date: post.b_date} )
+        } 
+        else
+        {
+            console.log("Not Found!");
+        }
+    
+    })
+   
+
 })
